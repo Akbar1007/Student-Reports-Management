@@ -1,16 +1,19 @@
 #include <iostream>
 #include <string>
+#include <cctype>
 using namespace std;
 
+void Display(int num_students, string* names, int* scores) {
+    cout << "\nStudent Data:\n";
+    for (int i = 0; i < num_students; i++) {
+        if (!names[i].empty()) {
+            names[i][0] = toupper(names[i][0]);
+        }
+        cout << "Name: " << names[i] << ", Score: " << scores[i] << endl;
+    }
+}
 
-//int inputData(arr) {
-//    
-//}
-
-
-int main()
-{
-    //cout << "First, enter student names and scores:" << inputData(arr) << endl;
+int main() {
     int num_students;
     cout << "How many student records you want to enter: ";
     cin >> num_students;
@@ -20,21 +23,15 @@ int main()
 
     for (int i = 0; i < num_students; i++) {
         cout << "Enter name for student " << (i + 1) << ": ";
-        cin >> names[i]; 
+        cin >> names[i];
         cout << "Enter score for student " << (i + 1) << ": ";
-        cin >> scores[i]; 
-        
+        cin >> scores[i];
     }
 
-    cout << "\nStudent Data:\n";
-    for (int i = 0; i < num_students; i++) {
-        cout << "Name: " << names[i] << ", Score: " << scores[i] << endl;
-    }
+    Display(num_students, names, scores);
 
     delete[] names;
     delete[] scores;
 
     return 0;
-
-    
 }

@@ -13,6 +13,18 @@ void Display(int num_students, string* names, int* scores) {
     }
 }
 
+void Average(int num_students, int* scores) {
+    int total = 0;
+    int average = 0;
+    for (int i = 0; i < num_students; i++) {
+        total += scores[i];
+    }
+    average = total / num_students;
+
+    cout << "\nThe average score is: " << average << endl;
+}
+
+
 int main() {
     int num_students;
     cout << "How many student records you want to enter: ";
@@ -29,6 +41,7 @@ int main() {
     }
 
     Display(num_students, names, scores);
+    Average(num_students, scores);
 
     delete[] names;
     delete[] scores;

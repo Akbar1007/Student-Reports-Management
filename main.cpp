@@ -24,7 +24,20 @@ void Average(int n, int* scores) {
     cout << "\nThe average score is: " << average << endl;
 }
 
-// check
+void Check_success(int n, int* scores) {
+    int num_passed = 0;
+    int num_no_pass = 0;
+    // 50 - minimum score to pass
+    for (int i = 0; i < n; i++) {
+        if (scores[i] >= 50) {
+            num_passed += 1;
+        } else {
+            num_no_pass += 1;
+        }
+    }
+    cout << num_passed << "of students successfully passed." << endl;
+    cout << num_no_pass << "of students failed." << endl;
+}
 
 void TopScore(int n, int* scores) {
     int highest_score = 0;
@@ -54,7 +67,7 @@ int main() {
     Display(num_students, names, scores);
     Average(num_students, scores);
     TopScore(num_students, scores);
-    // Check_Pass(num_students, scores);
+    Check_success(num_students, scores);
 
 
     delete[] names;
